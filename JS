@@ -1,7 +1,7 @@
 var selectedFace;
 var selectedContent;
 const faceContentVar = [
-    ["Yes!","No", "good try, but no.","Thanks for the offer, but no thank you.", 
+   ["Yes!","No", "good try, but no.","Thanks for the offer, but no thank you.", 
     "Sure thing, let's get to it right now!",
     "She really has better knowledge on this than I do.", 
     "This is a secret between us two, and that's what makes it so cool! Right?", 
@@ -16,15 +16,7 @@ const faceContentVar = [
     "The clock is ticking and I'm concerned that you will be late for your appointment!",
     "Hold on a moment, I'll be right with you.", 
     "I'll be happy with whatever you decide on!",
-    "Yes, just let me know.",
-    "Of course I can.",
-    "Sorry, I didn't catch that, can you repeat it please?", 
-    "I'm almost there, see you shortly.", 
-    "I'll call you back later, when i am safely parked.", 
-    "I'm just happy you're still coming to me.",
-    "Relax a little, don't need to speak so loudly.",
-    "How unusual, do share.", 
-    "I love you."],
+    "Yes, just let me know."],
     
     ["Can I say no? But it's a yes!",
     "I'm just joking, what I really mean is yes. Haha! Fooled you!",
@@ -42,18 +34,26 @@ const faceContentVar = [
     "It's my bad. Hope you can forgive me sometime...this year maybe? ",
     "I'm actually here 5mins early, just want to see you scramble. Thought it would be funny. ",
     "Did I hear what you just said? Wow, really? ",
-    "Phew, thanks for taking the pressure off me! ",
-    "Yay! We finally get to do something together again. Fun!",
-    "Bet you weren't expecting me to agree so quickly.",
-    "Erm...I think my ears need digging, but I didn't really understand that quite well. Help an old man out? ",
-    "Should I act surprised or should I pretend to hide so you will need to look for me? Decisions, decisions. ",
-    "I've got my earpiece on, but I am definitely listening!",
-    "Now the pressures all on you.",
-    "I bet you think I'm mad right now!",
-    "Very interesting, tell me more. ",
-    "This sounds risky but I want to see what happens."],
+    "Phew, thanks for taking the pressure off me! "],
     
-
+    ["I'm fine with anything, you just go ahead. ",
+    "No!",
+    "I must remember to be polite while saying no. So, no thank you. ",
+    "Ok can. Don't ask me again, if not I'll be very angry. ",
+    "I don't know what you want, and I don't think she will either, but you can try. ",
+    "You asking for trouble only. ",
+    "I know she said what I said, I told you so. ",
+    "Not now. ",
+    "Need me to fetch you there or pick you up later? You have to tell me, because I won't ask you. ",
+    "Okok, I will do it, have some patience la.",
+    "what do u want from me? ",
+    "But I bet your mother can help you with it.",
+    "What is it? Just say now. ",
+    "I'm sorry. Why do I always end up in these situations? ",
+    "Hurry up la, waste my petrol waiting for you. ",
+    "Stop right there. What do you mean by this?",
+    "Even if i gave you my answer, you would still choose the other option. "],
+    
     ["HOW MANY TIMES YOU WANT ME TO SAY YES? YES MEANS YES RIGHT?!",
     "N-O. NO.",
     "i really don't want it and i can't understand why you can't understand that! Ok, thanks." ,
@@ -69,17 +69,7 @@ const faceContentVar = [
     "Is is urgent? ",
     "OK FINE. YOU WERE RIGHT. I WAS WRONG, HAPPY? ",
     "WHY IS EVERYONE SO SLOW???",
-    "The news will be over in 5 mins, so you wait!",
-    "I don't have time to argue with you on this, so is better you make the final decision as per usual." ,
-    "So easy, you don't know how to do? Come I show you!",
-    "THIS BETTER BE QUICK.",
-    "I'm just double-checking you said what you did before my rage comes on.",
-    "Hello, you better be there waiting for me, then we can zoom off more quickly.  ",
-    "VERY DANGEROUS! BYE.",
-    "HURRY UP AND DECIDE.",
-    "You always speak so loud for what?!",
-    "This is my way to say yes i agree, and i hope this satistfies you as an adequate answer. ",
-    "Head out and leave me alone."],
+    "The news will be over in 5 mins, so you wait!"],
 
     ["Now please return to whatever you were doing before. The news is on.  ",
     "No. It means 'not ever'. Funny you should ask me a question when you know the answer for it will never change from 'no'. Now yes, that is my final answer. ",
@@ -126,20 +116,14 @@ const faceContentVar = [
     "Let me process my thoughts first, but you might need to repeat what you said again. Twice. ",
     "I can't decide so this would really be more a favour to me than to you." ,
     "Can I say cannot? ",
-    "I guess I'll just work this out as I go along.",
-    "If you repeat what you said then maybe I'll understand you better.",
-    "Should I wait here, or over there? Which place will be better and more feasible for you to notice me? I wonder. ",
-    "Perhaps you can give me the directions to where I am supposed to be.",
-    "I can't even remember the options, it's better I just let you decide.",
-    "If I pretend I'm busy then maybe they won't know I don't have a clue what they're talking about.",
-    "I hope this is convincing enough to throw them off my scent on forgetting a dozen other things today. ",
-    "Do they need to stay safe for this? Better just say anyway."]
+    "I guess I'll just work this out as I go along."]
 ]
 
 const faceOutput = document.querySelector('#face-output');
 const contentOutput = document.querySelector('#content-output');
 const allOutput = document.querySelector('#translation');
-console.log(contentOutput)
+console.log(contentOutput);
+console.log(faceOutput);
 const faceBtn = document.querySelectorAll('input[name="face"]');
 faceBtn.forEach((item) => {
     item.addEventListener("click", f => {
@@ -149,22 +133,22 @@ faceBtn.forEach((item) => {
         //faceOutput.innerHTML = e.target.value;
         switch (f.target.value) {
             case "happy":
-                faceImg.src = "img/happy.png";
+                faceImg.src = "https://assets.website-files.com/60c6ef47c6ce5c4543f51c31/60c78035b345ed86cb32f6ab_happy.png";
                 break;
             case "funny":
-                faceImg.src = "img/funny.png";
+                faceImg.src = "https://assets.website-files.com/60c6ef47c6ce5c4543f51c31/60c78036d849e1ccbc211fe2_funny.png";
                 break;
             case "grumpy":
-                faceImg.src = "img/grumpy.png";
+                faceImg.src = "https://uploads-ssl.webflow.com/60c6ef47c6ce5c4543f51c31/60c7803636536d3469ff5870_grumpy.png";
                 break;
             case "hangry":
-                faceImg.src = "img/hangry.png";
+                faceImg.src = "https://assets.website-files.com/60c6ef47c6ce5c4543f51c31/60c780354a8b47a8b8544226_hangry.png";
                 break;
             case "poker":
-                faceImg.src = "img/poker.png";
+                faceImg.src = "https://assets.website-files.com/60c6ef47c6ce5c4543f51c31/60c78035e39cde3f724d508c_poker.png";
                 break;
             case "confused":
-                faceImg.src = "img/confused.png";
+                faceImg.src = "https://assets.website-files.com/60c6ef47c6ce5c4543f51c31/60c7803669d2476939472bbc_confused.png";
                 break;
             default:
                 ;
@@ -177,12 +161,6 @@ btnContent.forEach((item) => {
     item.addEventListener("click", c => {
         console.log(c.target.value);
         selectedContent = c.target.dataset.col;
-        // switch (c.target.value) {
-        //     case "ok":
-        //         content.innerHTML="ok.";
-        //     break;
-        // }
-        // })
         contentOutput.innerHTML = c.target.value;
     })
 })
@@ -197,5 +175,13 @@ submitBtn.addEventListener("click", e => {
         allOutput.innerHTML = faceContentVar[selectedFace][selectedContent];
         
     }
+})}
+
+$(document).ready(function() {
+
+    $('#reset').click(function() {
+    
+        $("#form")[0].reset();
+        
+    })
 })
-}
