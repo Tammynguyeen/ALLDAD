@@ -1,0 +1,56 @@
+<style>
+.emoji-block input[type="radio" i] {
+appearance: button;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+    position: absolute;
+    z-index: 100;
+}
+.emoji-block input:checked ~ .emoji {
+filter: saturate(1);
+}
+.emoji-block:hover input ~ .emoji {
+filter: saturate(1);
+}
+.emoji-block:hover input {
+cursor: pointer;
+}
+
+li input:checked ~ .sa-14-semi-b {
+background-color: #E0D8D4;
+border-radius: 20px;
+border-bottom:#f9f1ec;
+}
+input[type="radio" i]{
+appearance: button;
+    width: 100%;
+    height: 3rem;
+    opacity: 0;
+    position: absolute;
+}
+input:hover {
+cursor: pointer;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+
+  border: 1px #cecece solid;
+}
+::-webkit-scrollbar-track {
+  background: #CECECE; 
+  border-radius: 9px;
+
+}
+::-webkit-scrollbar-thumb {
+  background: #82817F; 
+  border-radius: 7px;
+  margin-top: 5px;
+}
+
+.content-block {
+overflow-x: hidden;
+}
+</style>
