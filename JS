@@ -1,0 +1,201 @@
+var selectedFace;
+var selectedContent;
+const faceContentVar = [
+    ["Yes!","No", "good try, but no.","Thanks for the offer, but no thank you.", 
+    "Sure thing, let's get to it right now!",
+    "She really has better knowledge on this than I do.", 
+    "This is a secret between us two, and that's what makes it so cool! Right?", 
+    "I'm curious to find out what she said.",
+    "Sorry I can't help you right now, but I will get to it right after this.", 
+    "Let me know, maybe I can give you a lift there.",
+    "I'll get to it in just a bit. Hold on a moment.", 
+    "How can I help you today lovely?", 
+    "It must have slipped my mind, my apologies.",
+    "Is it what i think it is?", 
+    "I'm truly so sorry! I really didn't mean it!", 
+    "The clock is ticking and I'm concerned that you will be late for your appointment!",
+    "Hold on a moment, I'll be right with you.", 
+    "I'll be happy with whatever you decide on!",
+    "Yes, just let me know.",
+    "Of course I can.",
+    "Sorry, I didn't catch that, can you repeat it please?", 
+    "I'm almost there, see you shortly.", 
+    "I'll call you back later, when i am safely parked.", 
+    "I'm just happy you're still coming to me.",
+    "Relax a little, don't need to speak so loudly.",
+    "How unusual, do share.", 
+    "I love you."],
+    
+    ["Can I say no? But it's a yes!",
+    "I'm just joking, what I really mean is yes. Haha! Fooled you!",
+    "I'll do it later anyhow, to surprise them! ",
+    "Should i ask what i am saying ok to? I guess I'll find out soon enough." ,
+    "I'm just going to hide around the corner and wait for her to scold you. HAHA! ",
+    "Then tell me before you go to her. I want to hear her scold you from a safe distance. ",
+    "I have the perfect response for whatever you are going to say, and I promise you, it will be funny. ",
+    "Will they say 'Hello busy, I'm hungry'? I hope so. ",
+    "Wouldn't it be funny if we 'bumped' into one another there later? ",
+    "I will 'forget' about it, and when you find out, I will pretend that it wasn't me who did it. ",
+    "Hello! Now that I've got your attention...",
+    "Oopsy daisy, not to worry, let's see what we can do to save it! ",
+    "Oh, let me guess! I love games! ",
+    "It's my bad. Hope you can forgive me sometime...this year maybe? ",
+    "I'm actually here 5mins early, just want to see you scramble. Thought it would be funny. ",
+    "Did I hear what you just said? Wow, really? ",
+    "Phew, thanks for taking the pressure off me! ",
+    "Yay! We finally get to do something together again. Fun!",
+    "Bet you weren't expecting me to agree so quickly.",
+    "Erm...I think my ears need digging, but I didn't really understand that quite well. Help an old man out? ",
+    "Should I act surprised or should I pretend to hide so you will need to look for me? Decisions, decisions. ",
+    "I've got my earpiece on, but I am definitely listening!",
+    "Now the pressures all on you.",
+    "I bet you think I'm mad right now!",
+    "Very interesting, tell me more. ",
+    "This sounds risky but I want to see what happens."],
+    
+
+    ["HOW MANY TIMES YOU WANT ME TO SAY YES? YES MEANS YES RIGHT?!",
+    "N-O. NO.",
+    "i really don't want it and i can't understand why you can't understand that! Ok, thanks." ,
+    "OK? IS THIS OK?! DO YOU THINK IT'S OK?!?",
+    "Don't interrupt me right now, I'm super busy! ",
+    "I've done something wrong, so help me cover not rat me out!",
+    "Very likely that she will agree with what I said, so you had better listen to both of us!",
+    "I cannot hear what you just said through this door, and I am currently focused on doing something very important, so whatever it is, handle it yourself la!",
+    "Do you think this house is a hotel? Go out from morning to night, and then comeback to use my electricity and water!  COME, I FETCH YOU THERE NOW LA!",
+    "CAN'T YOU SEE THAT I'M BUSY?",
+    "This better be important, if not, why are you interrupting me for?  ",
+    "At my age, you tend to forget things and i have no one to blame but myself, but I don't know how to channel this feeling except on to the next available person. ROAR!",
+    "Is is urgent? ",
+    "OK FINE. YOU WERE RIGHT. I WAS WRONG, HAPPY? ",
+    "WHY IS EVERYONE SO SLOW???",
+    "The news will be over in 5 mins, so you wait!",
+    "I don't have time to argue with you on this, so is better you make the final decision as per usual." ,
+    "So easy, you don't know how to do? Come I show you!",
+    "THIS BETTER BE QUICK.",
+    "I'm just double-checking you said what you did before my rage comes on.",
+    "Hello, you better be there waiting for me, then we can zoom off more quickly.  ",
+    "VERY DANGEROUS! BYE.",
+    "HURRY UP AND DECIDE.",
+    "You always speak so loud for what?!",
+    "This is my way to say yes i agree, and i hope this satistfies you as an adequate answer. ",
+    "Head out and leave me alone."],
+
+    ["Now please return to whatever you were doing before. The news is on.  ",
+    "No. It means 'not ever'. Funny you should ask me a question when you know the answer for it will never change from 'no'. Now yes, that is my final answer. ",
+    "No thanks. ",
+    "ok. ",
+    "Ask your mother. She's waiting for you to ask. ",
+    "Don't tell her. ",
+    "I hope it didn't involve me, but just needed to double check with you.",
+    "I may not look it. But I am. ",
+    "This is a courtesy question borne from care and concern of my spawn and/or brethren. ",
+    "You always make me wait, so now I will make you wait. ",
+    "I see you need something from me, but if i remain non-chalant and vague in my replies, you will disappear into the background again. ",
+    "Or did i? Only I will know, but I shan't divulge the truth to you. ",
+    "Ok i hear you, now off you go. ",
+    "Sorry. Or am i? Who knew a simple 5-letter word could hold so much influence over a person. Interesting ",
+    "It's either I want you to be here quickly, or could mean I would leave or start without you. Open for intepretation, either way, you're behind.",
+    "Waiting is a test of patience and a measurement of importance in the news that you are disseminating to me. ",
+    "If it were up to me, it would have already be done. ",
+    "Ok, can. ",
+    "Sure",
+    "I'm gonna need more details before I commit to something.",
+    "Concentrating on the road, not on this call or conversation. But yes, I am reaching the destination. ",
+    "There seems to be no traffic police in sight, but if there is, this call wil be abruptly cut, without prior warning.  ",
+    "It's time for you to start making some decisions in life.",
+    "Shhhhhh.",
+    "I have the answer, but you will find out later. ",
+    "Do I really want you to stay safe? Only one way to find out."],
+
+    ["Yes?!???",
+    "Where did i leave my phone? I thought it was in my pocket...",
+    "What did you say again? If you could so kindly repeat it, i might say yes. ",
+    "Ok to what ah? ",
+    "That's the best that I can do to help you. I don't even know where she is actually....",
+    "She will scold me, you, and everyone else we know. Really. ",
+    "Did she ask you anything about me? I still have some errands to run.",
+    "I'm busy looking for my phone. Where did I leave it? ",
+    "You might need to help me pick up a few things that I might have forgotten earlier. Can you? ",
+    "But later I may also forget. How?",
+    "What???",
+    "I forget many things, you should know this by know, or did you forget that too? ",
+    "Should I know this? Is this a trick question? Help me out here.",
+    "Beg your pardon, what did you say again? ",
+    "FASTER! BEFORE I FORGET!",
+    "Let me process my thoughts first, but you might need to repeat what you said again. Twice. ",
+    "I can't decide so this would really be more a favour to me than to you." ,
+    "Can I say cannot? ",
+    "I guess I'll just work this out as I go along.",
+    "If you repeat what you said then maybe I'll understand you better.",
+    "Should I wait here, or over there? Which place will be better and more feasible for you to notice me? I wonder. ",
+    "Perhaps you can give me the directions to where I am supposed to be.",
+    "I can't even remember the options, it's better I just let you decide.",
+    "If I pretend I'm busy then maybe they won't know I don't have a clue what they're talking about.",
+    "I hope this is convincing enough to throw them off my scent on forgetting a dozen other things today. ",
+    "Do they need to stay safe for this? Better just say anyway."]
+]
+
+const faceOutput = document.querySelector('#face-output');
+const contentOutput = document.querySelector('#content-output');
+const allOutput = document.querySelector('#translation');
+console.log(contentOutput)
+const faceBtn = document.querySelectorAll('input[name="face"]');
+faceBtn.forEach((item) => {
+    item.addEventListener("click", f => {
+        console.log(f.target.value);
+        const faceImg = faceOutput.querySelector("img");
+        selectedFace = f.target.dataset.row;
+        //faceOutput.innerHTML = e.target.value;
+        switch (f.target.value) {
+            case "happy":
+                faceImg.src = "img/happy.png";
+                break;
+            case "funny":
+                faceImg.src = "img/funny.png";
+                break;
+            case "grumpy":
+                faceImg.src = "img/grumpy.png";
+                break;
+            case "hangry":
+                faceImg.src = "img/hangry.png";
+                break;
+            case "poker":
+                faceImg.src = "img/poker.png";
+                break;
+            case "confused":
+                faceImg.src = "img/confused.png";
+                break;
+            default:
+                ;
+        }
+    })
+})
+
+const btnContent = document.querySelectorAll('input[name="content"]');
+btnContent.forEach((item) => {
+    item.addEventListener("click", c => {
+        console.log(c.target.value);
+        selectedContent = c.target.dataset.col;
+        // switch (c.target.value) {
+        //     case "ok":
+        //         content.innerHTML="ok.";
+        //     break;
+        // }
+        // })
+        contentOutput.innerHTML = c.target.value;
+    })
+})
+
+const submitBtn = document.querySelector("#submitBtn");
+if(submitBtn) {
+submitBtn.addEventListener("click", e => {
+    if (selectedContent && selectedFace) {
+        console.log(selectedContent);
+        console.log(selectedFace);
+        console.log(faceContentVar[selectedFace][selectedContent]);
+        allOutput.innerHTML = faceContentVar[selectedFace][selectedContent];
+        
+    }
+})
+}
