@@ -248,7 +248,7 @@ const linkContentVar = [
 const faceOutput = document.querySelector('#face-output');
 const contentOutput = document.querySelector('#content-output');
 const allOutput = document.querySelector('#translation');
-const linkOutput = document.querySelector('#save-link a');
+const linkOutput = document.querySelector("#save-link");
 console.log(contentOutput);
 console.log(faceOutput);
 console.log(linkOutput);
