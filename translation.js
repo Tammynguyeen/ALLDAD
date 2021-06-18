@@ -248,6 +248,7 @@ const linkContentVar = [
 const faceOutput = document.querySelector('#face-output');
 const contentOutput = document.querySelector('#content-output');
 const allOutput = document.querySelector('#translation');
+const linkOutput = document.querySelector('#save-link');
 console.log(contentOutput);
 console.log(faceOutput);
 const faceBtn = document.querySelectorAll('input[name="face"]');
@@ -300,7 +301,7 @@ submitBtn.addEventListener("click", e => {
         console.log(faceContentVar[selectedFace][selectedContent]);
         console.log(linkContentVar[selectedFace][selectedContent]);
         allOutput.innerHTML = faceContentVar[selectedFace][selectedContent];
-        allOutput.innerHTML = linkContentVar[selectedFace][selectedContent];
+        linkOutput.innerHTML = linkContentVar[selectedFace][selectedContent];
         
     }
 })}
