@@ -63,7 +63,7 @@ const faceContentVar = [
     "At my age, you tend to forget things and i have no one to blame but myself, but I don't know how to channel this feeling except on to the next available person. ROAR!",
     "OK FINE. YOU WERE RIGHT. I WAS WRONG, HAPPY? ",
     "WHY IS EVERYONE SO SLOW???",
-    "The news will be over in 5 mins, so you wait!"
+    "The news will be over in 5 mins, so you wait!";
     "I don't have time to argue with you on this, so is better you make the final decision as per usual. ",
     "So easy, you don't know how to do? Come I show you!",
     "I'm just double-checking you said what you did before my rage comes on.",
