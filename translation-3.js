@@ -301,7 +301,7 @@ submitBtn.addEventListener("click", e => {
         console.log(faceContentVar[selectedFace][selectedContent]);
         console.log(linkContentVar[selectedFace][selectedContent]);
         allOutput.innerHTML = faceContentVar[selectedFace][selectedContent];
-        linkOutput.innerHTML = linkContentVar[selectedFace][selectedContent];
+        linkOutput.href = linkContentVar[selectedFace][selectedContent];
         
     }
 })}
