@@ -248,7 +248,7 @@ const linkContentVar = [
 const faceOutput = document.querySelector('#face-output');
 const contentOutput = document.querySelector('#content-output');
 const allOutput = document.querySelector('#translation');
-const linkOutput = document.querySelector('#save-link');
+const linkOutput = document.querySelector('[href="#save-link"]');
 console.log(contentOutput);
 console.log(faceOutput);
 const faceBtn = document.querySelectorAll('input[name="face"]');
