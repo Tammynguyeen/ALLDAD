@@ -251,6 +251,7 @@ const allOutput = document.querySelector('#translation');
 const linkOutput = document.querySelector('[href="#save-link"]');
 console.log(contentOutput);
 console.log(faceOutput);
+console.log(linkOutput);
 const faceBtn = document.querySelectorAll('input[name="face"]');
 faceBtn.forEach((item) => {
     item.addEventListener("click", f => {
