@@ -108,7 +108,7 @@ const faceContentVar = [
     "You might need to help me pick up a few things that I might have forgotten earlier. Can you? ",
     "But later I may also forget. How?",
     "What???",
-    "I forget many things, you should know this by know, or did you forget that too? ",
+    "I forget many things, you should know this by now, or did you forget that too? ",
     "Beg your pardon, what did you say again? ",
     "FASTER! BEFORE I FORGET!",
     "Let me process my thoughts first, but you might need to repeat what you said again. Twice. ",
