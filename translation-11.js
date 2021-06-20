@@ -120,7 +120,7 @@ const faceContentVar = [
     "I can't even remember the options, it's better I just let you decide.",
     "I hope this is convincing enough to throw them off my scent on forgetting a dozen other things today. ",
     "Do they need to stay safe for this? Better just say anyway."]
-]
+];
 
 const linkContentVar = [
 ["	Happy-Yes.png	",
@@ -243,7 +243,7 @@ const linkContentVar = [
 "	Confused-Anything.png	",
 "	Confused-Hmmm.png	",
 "	Confused-Stay Safe.png	"],
-]
+];
 
 const faceOutput = document.querySelector('#face-output');
 const contentOutput = document.querySelector('#content-output');
@@ -309,7 +309,7 @@ submitBtn.addEventListener("click", e => {
 
 const resetBtn = document.querySelector('#resetBtn');
 resetBtn.addEventListener("click", e => {
-console.log(document.querySelectorAll("#form"));
-	document.querySelectorAll("#form").reset();
-        })
+	console.log(document.querySelector("#form"));
+	document.querySelector("#form").reset();
+})
         
