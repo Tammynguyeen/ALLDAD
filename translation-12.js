@@ -311,5 +311,6 @@ const resetBtn = document.querySelector('#resetBtn');
 resetBtn.addEventListener("click", e => {
 	console.log(document.querySelector("#form"));
 	document.querySelector("#form").reset();
+	document.querySelector("#form-2").reset();
 })
         
