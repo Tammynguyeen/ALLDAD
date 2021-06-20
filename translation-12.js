@@ -312,5 +312,10 @@ resetBtn.addEventListener("click", e => {
 	console.log(document.querySelector("#form"));
 	document.querySelector("#form").reset();
 	document.querySelector("#form-2").reset();
+	document.querySelector('#translation').reset();
+	document.querySelector('#face-output').reset();
+	document.querySelector('#content-output').reset();
+	
+	
 })
         
