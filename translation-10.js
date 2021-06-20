@@ -309,7 +309,7 @@ submitBtn.addEventListener("click", e => {
 
 const resetBtn = document.querySelector('#resetBtn');
 resetBtn.addEventListener("click", e => {
-console.log(document.querySelector("#form"));
-	document.querySelector("#form").reset();
+console.log(document.querySelectorAll("#form"));
+	document.querySelectorAll("#form").reset();
         })
         
